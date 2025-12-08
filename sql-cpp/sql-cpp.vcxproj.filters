@@ -21,6 +21,9 @@
     <ClCompile Include="coloana.hpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="coloana.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="tabela.hpp">

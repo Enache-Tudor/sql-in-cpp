@@ -124,6 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\main.cpp" />
+    <ClCompile Include="coloana.cpp" />
     <ClCompile Include="coloana.hpp" />
   </ItemGroup>
   <ItemGroup>

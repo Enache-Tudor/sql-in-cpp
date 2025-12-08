@@ -19,8 +19,8 @@ public:
 	~Coloana();
 
 	//operatori
-	friend std::ostream& operator<<(std::ostream& out, const Coloana& c);
-	friend std::istream& operator>>(std::ifstream& in, Coloana& c);
+	friend std::ostream& operator<<(std::ostream& out, const Coloana& c);//Afi?eaz? numele, tipul de date ?i con?inutul vectorului valori pe ecran
+	friend std::istream& operator>>(std::ifstream& in, Coloana& c);//dummy
 
 	Coloana operator=(const Coloana& c);
 	int& operator[](int index);
