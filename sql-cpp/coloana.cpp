@@ -14,7 +14,6 @@ Coloana::Coloana(char* nume, const std::string& tipDate) {
 		strcpy_s(this->nume, strlen(nume) + 1, nume);
 	}
 	this->tipDate = tipDate;
-	Coloana::nrColoane++;
 }
 Coloana::Coloana(const Coloana& c) {
 	if (c.nume != nullptr) {
@@ -23,7 +22,6 @@ Coloana::Coloana(const Coloana& c) {
 	}
 	this->valori = c.valori;
 	this->tipDate = c.tipDate;
-	Coloana::nrColoane++;
 
 }
 Coloana::~Coloana() {
@@ -44,21 +42,15 @@ Coloana Coloana::operator=(const Coloana & c) {
 		else
 			this->nume = nullptr;
 	}
-	return *this;
 }
 ostream& operator<<(std::ostream& out, const Coloana& c) {
-	out << "Nume: " << (c.nume != nullptr ? c.nume : "Anonim") << endl;
-	out << "Tip date: " << c.tipDate << endl;
+	out << "Nume: " << (c.nume != nullptr ? c.nume : "Anonim");
+	out << "Tip date: " << c.tipDate;
 	out << "Valori: [";
-	{
-		if (!c.valori.empty())
-			for (int i = 0; i < c.valori.size();i++) {
-				out << i;
-				if (i + 1 < c.valori.size())
-					out << ", ";
-			}
-		out << "]" << endl;
+	for (int i : c.valori) {
+		out << i << ", ";
 	}
+	out << "]";
 
 	return out;
 }
@@ -77,17 +69,20 @@ Coloana Coloana::operator+(int valoare) {
 Coloana Coloana::operator++(int) {//post
 	//salveaza o copie a obiectului vechi, modifica copia si returneaz originalul nemodificat
 	Coloana copie = *this;
-	this->valori.push_back(0);
+	for (int& i : this->valori) {
+		i++;
+	}
 	return copie;
 
 }
 Coloana Coloana::operator++() {//pre
 	//modifica originalul
-	this->valori.push_back(0);
+	for (int& i : this->valori) {
+		i++;
+	}
 	return *this;
 }
 bool Coloana::operator==(const Coloana& c) {
-	//2 coloana sunt egale daca au valorile egale
 	if (c.valori.size() == this->valori.size())
 	{
 		for (int i = 0; i < c.valori.size(); i++) {
@@ -98,8 +93,4 @@ bool Coloana::operator==(const Coloana& c) {
 	}
 	else
 		return false;
-}
-bool Coloana::operator!() const{
-	//daca nu este goala => true
-	return this->valori.empty();
 }

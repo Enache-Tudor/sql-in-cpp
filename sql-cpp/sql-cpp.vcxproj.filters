@@ -15,16 +15,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="coloana.hpp">
       <Filter>Header Files</Filter>
     </ClCompile>
     <ClCompile Include="coloana.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="rand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
